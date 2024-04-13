@@ -63,8 +63,10 @@ classDiagram
         number state
         Object neighbours
     }
+    class ForestView {
+        Forest forest
+        Canvas canva
+    }
 
 
 ```
-
-- **Code**
