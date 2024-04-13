@@ -5,7 +5,6 @@ export class ForestView {
     /**@typedef {Forest} */
     this.forest = forest;
 
-    this.padding = 1;
     this.cellSize = cellSize;
     this.height = forest.h * cellSize;
     this.width = forest.l * cellSize;
