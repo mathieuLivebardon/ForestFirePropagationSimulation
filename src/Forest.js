@@ -41,26 +41,16 @@ export class Forest {
   }
 
   nextStep() {
-    const cellsOnFire = [];
-    this.grid.forEach((line) => {
-      line.forEach((cell) => {
-        if (cell.state == State.ON_FIRE) cellsOnFire.push(cell);
-      });
-    });
-
-    if (!cellsOnFire.length) {
-      console.log("Fin de la propagation");
-      return;
-    }
+    const cellsOnFire = this.getCellsOnFire();
 
     cellsOnFire.forEach((cell) => {
       cell.state = State.BURNED;
       Object.keys(cell.neighbours).forEach((key) => {
         const n = cell.neighbours[key];
         if (!n) return;
-
         if (this.grid[n.y][n.x].state == State.NEUTRAL) {
           const rand = Math.random();
+
           if (rand < this.probProp) {
             this.grid[n.y][n.x].state = State.ON_FIRE;
           }
@@ -68,9 +58,19 @@ export class Forest {
       });
     });
   }
+
+  getCellsOnFire() {
+    const cellsOnFire = [];
+    this.grid.forEach((line) => {
+      line.forEach((cell) => {
+        if (cell.state == State.ON_FIRE) cellsOnFire.push(cell);
+      });
+    });
+    return cellsOnFire;
+  }
 }
 
-const State = {
+export const State = {
   NEUTRAL: "neutral",
   ON_FIRE: "on_fire",
   BURNED: "burned",
