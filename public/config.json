@@ -1,0 +1,8 @@
+{
+  "dimGrid": { "h": 5, "l": 6 },
+  "positionsOnFire": [
+    { "x": 3, "y": 4 },
+    { "x": 0, "y": 2 }
+  ],
+  "probProp": 0.33
+}
