@@ -66,7 +66,6 @@ classDiagram
     class ForestView {
         Forest forest
         Canvas canva
+        generateCanva()
     }
-
-
 ```
